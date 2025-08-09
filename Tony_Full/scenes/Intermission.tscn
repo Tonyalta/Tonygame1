@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3]
+[node name="Intermission" type="CanvasLayer"]
+[ext_resource type="Script" path="res://scripts/ui/IntermissionUI.gd" id="1"]
+[node name="UIRoot" type="Control" parent="."]
+[node name="Label" type="Label" parent="UIRoot"]
+text = "Intermission..."
+[node name="Script" type="Node" parent="."]
+script = ExtResource("1")

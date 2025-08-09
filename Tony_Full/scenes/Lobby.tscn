@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3]
+[node name="Lobby" type="Node"]
+[ext_resource type="Script" path="res://scripts/ui/Lobby.gd" id="1"]
+[node name="Script" type="Node" parent="."]
+script = ExtResource("1")

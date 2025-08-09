@@ -1,0 +1,208 @@
+{
+  "minigames": [
+    {
+      "id": "weapon_draft",
+      "name": "Weapon Draft Carousel",
+      "duration_sec": 30,
+      "players": "all",
+      "type": "draft",
+      "desc": "Alle wählen gleichzeitig 1 von 4 zufälligen Waffen/Perks; Snake-Pick per Teamplatzierung.",
+      "reward": "Gewählte Waffe/Perk für nächsten Duelisten des Teams",
+      "network": [
+        "draft_open",
+        "pick_submit",
+        "pick_lock",
+        "draft_result"
+      ],
+      "anti_grief": "Auto-Pick nach 10s Inaktivität"
+    },
+    {
+      "id": "resource_rush",
+      "name": "Resource Rush",
+      "duration_sec": 40,
+      "players": "all_non_duelists",
+      "type": "collect",
+      "desc": "Sammle auf Minimap 3 Arten Ressourcen; Kollision + Sammel-Button.",
+      "reward": "+1 bis +3 Team-Credits je Spieler (Shop)",
+      "network": [
+        "spawn_items",
+        "collect",
+        "score_update",
+        "end_summary"
+      ],
+      "anti_grief": "Max Carry, Respawn-Timer, Anti-idle"
+    },
+    {
+      "id": "sabotage_wires",
+      "name": "Sabotage Wires",
+      "duration_sec": 25,
+      "players": "all",
+      "type": "puzzle",
+      "desc": "Verbinde farbige Drähte; schneller Abschluss gibt Team-Cooldown-Reduktion.",
+      "reward": "-10% Ability-Cooldown für nächsten Duelisten je erfolgreichem Spieler",
+      "network": [
+        "puzzle_seed",
+        "progress",
+        "finish"
+      ],
+      "anti_grief": "Time cap 25s, auto-complete minimal reward"
+    },
+    {
+      "id": "target_practice",
+      "name": "Target Practice",
+      "duration_sec": 35,
+      "players": "all_non_duelists",
+      "type": "aim",
+      "desc": "Schieße auf poppende Targets; Schwierigkeit skaliert.",
+      "reward": "+HP oder +Shield für Duelisten (abh. von Teamgesamtpunktzahl)",
+      "network": [
+        "seed",
+        "hit",
+        "score_broadcast"
+      ],
+      "anti_grief": "Server validiert spawn/hit ids"
+    },
+    {
+      "id": "king_of_pad",
+      "name": "King of the Pad",
+      "duration_sec": 30,
+      "players": "all",
+      "type": "area_control",
+      "desc": "Halte Team-Pad-Zone; Punkte ticken pro Sekunde, knockback bei Dash.",
+      "reward": "1–3 Shop-Credits + Start-Ult-Charge für führendes Team",
+      "network": [
+        "pad_state",
+        "contest_update",
+        "score_tick"
+      ],
+      "anti_grief": "Diminishing returns"
+    },
+    {
+      "id": "memory_match",
+      "name": "Memory Match",
+      "duration_sec": 25,
+      "players": "all",
+      "type": "memory",
+      "desc": "Decke Kartenpaare auf; Teams teilen Fortschritt.",
+      "reward": "Jedes Paar gibt +Small Buff Token (stackbar bis 3)",
+      "network": [
+        "deck_seed",
+        "flip",
+        "match",
+        "end"
+      ],
+      "anti_grief": "Flip-cooldown 0.5s; server authoritative"
+    }
+  ],
+  "weapons": [
+    {
+      "id": "blaster",
+      "name": "Pulse Blaster",
+      "class": "ranged",
+      "dps": 28,
+      "range": "mid",
+      "perk": "+10% move while firing",
+      "rarity": "common"
+    },
+    {
+      "id": "rail",
+      "name": "Rail Spear",
+      "class": "ranged",
+      "dps": 45,
+      "range": "long",
+      "perk": "Pierce 1",
+      "rarity": "rare"
+    },
+    {
+      "id": "shotty",
+      "name": "Boomstick",
+      "class": "ranged",
+      "dps": 60,
+      "range": "close",
+      "perk": "Knockback +20%",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "saber",
+      "name": "Ion Saber",
+      "class": "melee",
+      "dps": 75,
+      "range": "melee",
+      "perk": "Dash resets on kill",
+      "rarity": "epic"
+    },
+    {
+      "id": "orb",
+      "name": "Aegis Orb",
+      "class": "support",
+      "dps": 15,
+      "range": "mid",
+      "perk": "+25 Shield to allies on hit",
+      "rarity": "rare"
+    },
+    {
+      "id": "smg",
+      "name": "Vect SMG",
+      "class": "ranged",
+      "dps": 34,
+      "range": "close-mid",
+      "perk": "+15% reload speed",
+      "rarity": "common"
+    }
+  ],
+  "perks": [
+    {
+      "id": "sturdy",
+      "name": "Sturdy",
+      "+effect": "+20 max HP (duelist only)",
+      "stack": 1
+    },
+    {
+      "id": "haste",
+      "name": "Haste",
+      "+effect": "+10% movespeed (team aura im Duel)",
+      "stack": 1
+    },
+    {
+      "id": "focus",
+      "name": "Focus",
+      "+effect": "+10% crit chance",
+      "stack": 2
+    },
+    {
+      "id": "shield",
+      "name": "Shield Battery",
+      "+effect": "+40 shield on duel start",
+      "stack": 1
+    },
+    {
+      "id": "cooldown",
+      "name": "Cooldown Cut",
+      "+effect": "-10% ability cooldowns",
+      "stack": 2
+    }
+  ],
+  "buffs": [
+    {
+      "id": "heal_pulse",
+      "name": "Heal Pulse",
+      "type": "team_active",
+      "effect": "+30 HP to duelist, 30s cd",
+      "source": "spectator"
+    },
+    {
+      "id": "reveal",
+      "name": "Reveal Ping",
+      "type": "team_active",
+      "effect": "Reveal enemies 2s",
+      "source": "spectator"
+    },
+    {
+      "id": "fortify",
+      "name": "Fortify",
+      "type": "passive",
+      "effect": "+10% damage resist",
+      "source": "minigame_token"
+    }
+  ]
+}

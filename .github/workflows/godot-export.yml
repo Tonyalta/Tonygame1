@@ -24,8 +24,9 @@ jobs:
           archive_output: false
 
 
-                - name: Upload Windows artifact
-              uses: actions/upload-artifact@v4
-            with:
-              name: Tony_Windows_Build
-              path: Tony_Full/build
+      - name: Upload Windows artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Tony_Windows_Build
+          path: Tony_Full/build
+

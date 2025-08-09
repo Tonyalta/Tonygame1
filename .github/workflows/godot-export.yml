@@ -1,5 +1,6 @@
 name: Build Tony (Windows)
 
+
 on:
   workflow_dispatch:
   push:
@@ -24,7 +25,7 @@ jobs:
 
 
                 - name: Upload Windows artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: Tony_Windows_Build
-          path: Tony_Full/build
+              uses: actions/upload-artifact@v4
+            with:
+              name: Tony_Windows_Build
+              path: Tony_Full/build

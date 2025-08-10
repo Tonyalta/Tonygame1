@@ -8,8 +8,18 @@ var data := {}
 func _ready():
     # Load gameplay data
     var f := FileAccess.open("res://data/tony_gameplay_data.json", FileAccess.READ)
-    if f:
-        data = JSON.parse_string(f.get_as_text())
+       if f == null:
+        push_warning("Could not open gameplay data file: %s" % FileAccess.get_open_error())
+        data = {}
+    else:
+        var text := f.get_as_text()
+        f.close()
+        var parsed = JSON.parse_string(text)
+        if parsed is Dictionary:
+            data = parsed
+        else:
+            push_warning("Failed to parse gameplay data JSON. Using empty defaults.")
+            data = {}
         f.close()
 
 func _get_net() -> Node:

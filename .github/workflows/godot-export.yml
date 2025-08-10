@@ -18,6 +18,11 @@ jobs:
 
       - name: Export game (Windows + Web)
         id: export
+              - name: Prepare Godot executable folder (Windows workaround)
+        run: |
+          mkdir "C:\Users\runneradmin\.local\share\godot\godot_executable\Godot_v4.4.1-stable_win64.exe"
+          curl -L https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_win64.exe -o "C:\Users\runneradmin\.local\share\godot\godot_executable\Godot_v4.4.1-stable_win64.exe\Godot_v4.4.1-stable_win64.exe"
+
         uses: firebelley/godot-export@v6.0.0
         with:
           godot_executable_download_url: https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_win64.exe.zip

@@ -13,6 +13,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Install wget (Windows)
+        run: choco install wget --no-progress
+
       - name: Export game (Windows + Web)
         id: export
         uses: firebelley/godot-export@v6.0.0

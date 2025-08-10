@@ -7,30 +7,22 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Export game
+      - name: Export game (Windows + Web)
         id: export
         uses: firebelley/godot-export@v6.0.0
         with:
-          # Auf Linux-Runnern MUSS der Linux-Editor geladen werden
-          godot_executable_download_url: https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip
+          godot_executable_download_url: https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_win64.exe.zip
           godot_export_templates_download_url: https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_export_templates.tpz
 
-          # Pfad zu deinem Godot-Projekt (Ordner mit project.godot)
           relative_project_path: Tony_Full
-
-          # Namen müssen GENAU den Preset-Namen(en) in export_presets.cfg entsprechen
           presets_to_export: "Windows Desktop, Web"
-
-          # Benutze die Exportpfade aus export_presets.cfg (z.B. build/Tony.exe, build/web/)
           use_preset_export_path: true
-
-          # Kein zusätzliches ZIP der Exporte erzeugen (wir laden selbst als Artifact hoch)
           archive_output: false
 
       - name: Upload build artifacts
